@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Brony Radio</string>
+    <string name="stop_casting">Stop Casten</string>
+    <string name="label_pause">Pause</string>
+    <string name="label_play">Afspelen</string>
+    <string name="label_previous">Vorige</string>
+    <string name="label_next">Volgende</string>
+    <string name="favorite">Favoriet</string>
+    <string name="error_no_metadata">Kan geen metadata binnenhalen.</string>
+    <string name="browse_genres">Genres</string>
+    <string name="browse_genre_subtitle">Muziek per genre</string>
+    <string name="browse_musics_by_genre_subtitle">%1$s nummers</string>
+    <string name="random_queue_title">Willekeurige muziek</string>
+    <string name="error_no_connection">Kan geen verbinding maken. Controleer internet-verbinding.</string>
+    <string name="error_loading_media">Fout bij laden media</string>
+    <string name="casting_to_device">Casten naar %1$s</string>
+    <string name="currently_playing_song">Huidige nummer</string>
+    <string name="currently_playing_artist">Artiest van huidige nummer</string>
+    <string name="currently_playing_extra_info">Extra informatie huidige nummer</string>
+    <string name="play_item">Speel nummer</string>
+    <string name="play_pause">afspelen of pauzeren</string>
+    <string name="skip_next">door naar volgende</string>
+    <string name="skip_prev">terug naar vorige</string>
+    <string name="touch_to_cast">Druk hier om te verbinden met een Google Cast apparaat</string>
+    <string name="home_title">Beginscherm</string>
+    <string name="related_content_header">Je hebt vast ook intresse voor</string>
+    <string name="action_listen">Luisteren</string>
+    <string name="open_content_drawer">Open het hoofdmenu</string>
+    <string name="close_content_drawer">Sluit het hoofdmenu</string>
+    <string name="placeholder_message">Dit is een placeholder voor jouw applicatie code.</string>
+    <string name="drawer_allmusic_title">Alle muziek</string>
+    <string name="drawer_playlists_title">Afspeellijsten</string>
+    <string name="now_playing">Huidige nummer</string>
+    <string name="background_image_str">Achtergrond afbeelding voor album art</string>
+    <string name="search_queue_title">Zoekresultaten</string>
+    <string name="no_search_results">Geen zoekresultaten.</string>
+    <string name="loading">Laden…</string>
+    <string name="media_route_menu_title">Speel af op…</string>
+</resources>

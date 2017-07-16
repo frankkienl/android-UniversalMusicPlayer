@@ -16,7 +16,7 @@
   -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.android.uamp" >
+    package="nl.frankkie.bronyradio" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -142,7 +142,7 @@
         -->
         <meta-data
             android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
-            android:value="com.example.android.uamp.CastOptionsProvider" />
+            android:value="nl.frankkie.bronyradio.CastOptionsProvider" />
 
         <!-- A full screen activity showing controls and a seek bar for
              the current playing music -->

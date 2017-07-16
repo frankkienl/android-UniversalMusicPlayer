@@ -22,7 +22,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".MusicPlayerActivity">
+    tools:context=".ui.MusicPlayerActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -44,7 +44,7 @@
             android:layout_alignParentBottom="true"
             app:cardElevation="8dp">
 
-            <fragment android:name="com.example.android.uamp.ui.PlaybackControlsFragment"
+            <fragment android:name="nl.frankkie.bronyradio.ui.PlaybackControlsFragment"
                 android:id="@+id/fragment_playback_controls"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
