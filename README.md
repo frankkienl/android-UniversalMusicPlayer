@@ -1,3 +1,17 @@
+Brony Radio
+===========
+
+*This is a fork of Universal Android Music Player Sample.*
+  
+This app makes it possible to listen to Brony Internet radio on Android Auto.
+
+
+*Original description below*
+
+  
+  
+  
+
 Universal Android Music Player Sample
 =====================================
 
