@@ -75,7 +75,11 @@ public class QueueHelper {
             return null;
         }
 
-        return convertToQueue(tracks, hierarchy[0], hierarchy[1]);
+        if (hierarchy.length == 2) {
+            return convertToQueue(tracks, hierarchy[0], hierarchy[1]);
+        } else {
+            return convertToQueue(tracks, hierarchy[0], hierarchy[1], hierarchy[2], hierarchy[3]);
+        }
     }
 
     public static List<MediaSessionCompat.QueueItem> getPlayingQueueFromSearch(String query,

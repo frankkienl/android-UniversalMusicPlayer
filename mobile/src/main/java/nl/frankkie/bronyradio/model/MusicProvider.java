@@ -170,7 +170,7 @@ public class MusicProvider {
             //mediaItems.add(createMediaItem(m.metadata));
             mediaItems.add(m.metadata);
         }
-        Collections.sort(mediaItems, new MediaMetadataComparer());
+        //Collections.sort(mediaItems, new MediaMetadataComparer());
         return mediaItems;
     }
 
