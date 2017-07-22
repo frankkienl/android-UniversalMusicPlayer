@@ -40,10 +40,12 @@ public class RemoteJSONSource implements MusicProviderSource {
 
     private static final String TAG = LogHelper.makeLogTag(RemoteJSONSource.class);
 
-//    protected static final String CATALOG_URL =
+    //    protected static final String CATALOG_URL =
 //        "http://storage.googleapis.com/automotive-media/music.json";
+//    protected static final String CATALOG_URL =
+//        "http://frankkie.nl/pony/internet-radio.json";
     protected static final String CATALOG_URL =
-        "http://frankkie.nl/pony/internet-radio.json";
+            "http://wofje.8s.nl/wofje_new/app/app2_get_media.php";
 
     private static final String JSON_MUSIC = "music";
     private static final String JSON_TITLE = "title";
@@ -52,6 +54,7 @@ public class RemoteJSONSource implements MusicProviderSource {
     private static final String JSON_GENRE = "genre";
     private static final String JSON_SOURCE = "source";
     private static final String JSON_IMAGE = "image";
+    private static final String JSON_TPYE = "type";
     private static final String JSON_TRACK_NUMBER = "trackNumber";
     private static final String JSON_TOTAL_TRACK_COUNT = "totalTrackCount";
     private static final String JSON_DURATION = "duration";
@@ -79,6 +82,22 @@ public class RemoteJSONSource implements MusicProviderSource {
         }
     }
 
+    private static String getStringSafe(JSONObject json, String key) {
+        try {
+            return json.getString(key);
+        } catch (JSONException e) {
+            return "";
+        }
+    }
+
+    private static int getIntSafe(JSONObject json, String key) {
+        try {
+            return json.getInt(key);
+        } catch (JSONException e) {
+            return -1;
+        }
+    }
+
     private MediaMetadataCompat buildFromJSON(JSONObject json, String basePath) throws JSONException {
         String title = json.getString(JSON_TITLE);
         String album = json.getString(JSON_ALBUM);
@@ -86,9 +105,10 @@ public class RemoteJSONSource implements MusicProviderSource {
         String genre = json.getString(JSON_GENRE);
         String source = json.getString(JSON_SOURCE);
         String iconUrl = json.getString(JSON_IMAGE);
-        int trackNumber = json.getInt(JSON_TRACK_NUMBER);
-        int totalTrackCount = json.getInt(JSON_TOTAL_TRACK_COUNT);
-        int duration = json.getInt(JSON_DURATION) * 1000; // ms
+        String type = getStringSafe(json, JSON_TPYE);
+        int trackNumber = getIntSafe(json, JSON_TRACK_NUMBER); //json.getInt(JSON_TRACK_NUMBER);
+        int totalTrackCount = getIntSafe(json, JSON_TOTAL_TRACK_COUNT);//json.getInt(JSON_TOTAL_TRACK_COUNT);
+        int duration = json.getInt(JSON_DURATION) * 1000; // seconds to ms
 
         LogHelper.d(TAG, "Found music track: ", json);
 
@@ -119,6 +139,7 @@ public class RemoteJSONSource implements MusicProviderSource {
                 .putString(MediaMetadataCompat.METADATA_KEY_TITLE, title)
                 .putLong(MediaMetadataCompat.METADATA_KEY_TRACK_NUMBER, trackNumber)
                 .putLong(MediaMetadataCompat.METADATA_KEY_NUM_TRACKS, totalTrackCount)
+                .putString(MediaMetadataCompat.METADATA_KEY_AUTHOR, type) //abuse non-used field.
                 .build();
     }
 

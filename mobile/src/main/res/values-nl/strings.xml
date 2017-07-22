@@ -37,4 +37,7 @@
     <string name="no_search_results">Geen zoekresultaten.</string>
     <string name="loading">Laden…</string>
     <string name="media_route_menu_title">Speel af op…</string>
+    <string name="browse_types">Types</string>
+    <string name="browse_type_subtitle">Genres per type</string>
+    <string name="browse_musics_by_type_subtitle">%1$s genres</string>
 </resources>

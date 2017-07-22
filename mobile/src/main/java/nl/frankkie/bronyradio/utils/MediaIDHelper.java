@@ -34,6 +34,7 @@ public class MediaIDHelper {
     public static final String MEDIA_ID_EMPTY_ROOT = "__EMPTY_ROOT__";
     public static final String MEDIA_ID_ROOT = "__ROOT__";
     public static final String MEDIA_ID_MUSICS_BY_GENRE = "__BY_GENRE__";
+    public static final String MEDIA_ID_MUSICS_BY_TYPE = "__BY_TYPE__";
     public static final String MEDIA_ID_MUSICS_BY_SEARCH = "__BY_SEARCH__";
 
     private static final char CATEGORY_SEPARATOR = '/';
