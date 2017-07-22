@@ -156,11 +156,22 @@ public class MusicProvider {
     /**
      * Get music genres of the given type
      */
-    public Iterable<MediaMetadataCompat> getMusicsByType(String type) {
-        if (mCurrentState != State.INITIALIZED || !mMusicListByType.containsKey(type)) {
-            return Collections.emptyList();
+    public Iterable<MediaMetadataCompat> getMusicsByTypeByGenre(String type, String genre) {
+        ArrayList<MediaMetadataCompat> mediaItems = new ArrayList<>();
+        for (MutableMediaMetadata m : mMusicListById.values()) {
+            String mType = m.metadata.getString(MediaMetadataCompat.METADATA_KEY_AUTHOR);
+            String mGenre = m.metadata.getString(MediaMetadataCompat.METADATA_KEY_GENRE);
+            if (!TextUtils.equals(type, mType)) {
+                continue;
+            }
+            if (!TextUtils.equals(genre, mGenre)) {
+                continue;
+            }
+            //mediaItems.add(createMediaItem(m.metadata));
+            mediaItems.add(m.metadata);
         }
-        return mMusicListByType.get(type);
+        Collections.sort(mediaItems, new MediaMetadataComparer());
+        return mediaItems;
     }
 
 
@@ -367,8 +378,10 @@ public class MusicProvider {
 
             //_BY_TYPE_/<type/_BY_GENRE_/<genre>
             if (MediaIDHelper.getHierarchy(mediaId).length == 4) {
+
                 String type = MediaIDHelper.getHierarchy(mediaId)[1];
                 String genre = MediaIDHelper.getHierarchy(mediaId)[3];
+                //@See: getMusicsByTypeByGenre(type,genre);
                 //Make a list of music for this type/genre
                 for (MutableMediaMetadata m : mMusicListById.values()) {
                     String mType = m.metadata.getString(MediaMetadataCompat.METADATA_KEY_AUTHOR);
@@ -399,7 +412,20 @@ public class MusicProvider {
             try {
                 int a = left.getDescription().getTitle().toString().compareTo(right.getDescription().getTitle().toString());
                 return a;
-            } catch(Exception e){
+            } catch (Exception e) {
+                return 0;
+            }
+        }
+    }
+
+    public class MediaMetadataComparer implements Comparator<MediaMetadataCompat> {
+
+        @Override
+        public int compare(MediaMetadataCompat left, MediaMetadataCompat right) {
+            try {
+                int a = left.getDescription().getTitle().toString().compareTo(right.getDescription().getTitle().toString());
+                return a;
+            } catch (Exception e) {
                 return 0;
             }
         }
@@ -458,8 +484,9 @@ public class MusicProvider {
         // when we get a onPlayFromMusicID call, so we can create the proper queue based
         // on where the music was selected from (by artist, by genre, random, etc)
         String genre = metadata.getString(MediaMetadataCompat.METADATA_KEY_GENRE);
-        String hierarchyAwareMediaID = MediaIDHelper.createMediaID(
-                metadata.getDescription().getMediaId(), MEDIA_ID_MUSICS_BY_GENRE, genre);
+        String type = metadata.getString(MediaMetadataCompat.METADATA_KEY_AUTHOR);
+        String hierarchyAwareMediaID = MediaIDHelper.createMediaID(metadata.getDescription().getMediaId(),
+                MEDIA_ID_MUSICS_BY_TYPE, type, MEDIA_ID_MUSICS_BY_GENRE, genre);
         MediaMetadataCompat copy = new MediaMetadataCompat.Builder(metadata)
                 .putString(MediaMetadataCompat.METADATA_KEY_MEDIA_ID, hierarchyAwareMediaID)
                 .build();

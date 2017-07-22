@@ -121,6 +121,9 @@ public class MediaIDHelper {
         if (hierarchy.length == 2) {
             return hierarchy[1];
         }
+        if (hierarchy.length == 4) {
+            return hierarchy[1] + "/"+hierarchy[3];
+        }
         return null;
     }
 
