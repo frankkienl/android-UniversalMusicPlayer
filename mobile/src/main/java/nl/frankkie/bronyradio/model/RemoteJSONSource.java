@@ -16,8 +16,11 @@
 
 package nl.frankkie.bronyradio.model;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.media.MediaMetadataCompat;
 
+import nl.frankkie.bronyradio.MyApplication;
 import nl.frankkie.bronyradio.utils.LogHelper;
 
 import org.json.JSONArray;
@@ -39,13 +42,12 @@ import java.util.Iterator;
 public class RemoteJSONSource implements MusicProviderSource {
 
     private static final String TAG = LogHelper.makeLogTag(RemoteJSONSource.class);
-
-    //    protected static final String CATALOG_URL =
+//    protected static final String DEFAULT_CATALOG_URL =
 //        "http://storage.googleapis.com/automotive-media/music.json";
-//    protected static final String CATALOG_URL =
-//        "http://frankkie.nl/pony/internet-radio.json";
-    protected static final String CATALOG_URL =
-            "http://wofje.8s.nl/wofje_new/app/app2_get_media.php";
+    private static final String DEFAULT_CATALOG_URL =
+        "http://frankkie.nl/pony/internet-radio-basic.json";
+//    protected static final String DEFAULT_CATALOG_URL =
+//            "http://wofje.8s.nl/wofje_new/app/app2_get_media.php";
 
     private static final String JSON_MUSIC = "music";
     private static final String JSON_TITLE = "title";
@@ -59,12 +61,18 @@ public class RemoteJSONSource implements MusicProviderSource {
     private static final String JSON_TOTAL_TRACK_COUNT = "totalTrackCount";
     private static final String JSON_DURATION = "duration";
 
+    private String getCatalogUrl(){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MyApplication.app);
+        return prefs.getString("catalog_url", DEFAULT_CATALOG_URL);
+    }
+
     @Override
     public Iterator<MediaMetadataCompat> iterator() {
         try {
-            int slashPos = CATALOG_URL.lastIndexOf('/');
-            String path = CATALOG_URL.substring(0, slashPos + 1);
-            JSONObject jsonObj = fetchJSONFromUrl(CATALOG_URL);
+            String catalogUrl = getCatalogUrl();
+            int slashPos = catalogUrl.lastIndexOf('/');
+            String path = catalogUrl.substring(0, slashPos + 1);
+            JSONObject jsonObj = fetchJSONFromUrl(catalogUrl);
             ArrayList<MediaMetadataCompat> tracks = new ArrayList<>();
             if (jsonObj != null) {
                 JSONArray jsonTracks = jsonObj.getJSONArray(JSON_MUSIC);
