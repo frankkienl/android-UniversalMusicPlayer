@@ -23,11 +23,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
-        android:name="com.example.android.uamp.MediaItemFragment"
+        android:name="nl.frankkie.bronyradio.MediaItemFragment"
         style="@style/MediaItemList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.android.uamp.MediaItemFragment"
+        tools:context="nl.frankkie.bronyradio.MediaItemFragment"
         tools:listitem="@layout/fragment_mediaitem" />
 
     <ProgressBar

@@ -20,13 +20,15 @@ import android.os.Bundle
 import android.provider.MediaStore
 import androidx.test.runner.AndroidJUnit4
 import android.support.v4.media.MediaMetadataCompat
-import com.example.android.uamp.media.extensions.album
-import com.example.android.uamp.media.extensions.artist
-import com.example.android.uamp.media.extensions.genre
-import com.example.android.uamp.media.extensions.id
-import com.example.android.uamp.media.extensions.title
+import nl.frankkie.bronyradio.media.extensions.album
+import nl.frankkie.bronyradio.media.extensions.artist
+import nl.frankkie.bronyradio.media.extensions.genre
+import nl.frankkie.bronyradio.media.extensions.id
+import nl.frankkie.bronyradio.media.extensions.title
 import junit.framework.Assert
-import org.junit.Before
+import nl.frankkie.bronyradio.media.library.AbstractMusicSource
+import nl.frankkie.bronyradio.media.library.STATE_ERROR
+import nl.frankkie.bronyradio.media.library.STATE_INITIALIZED
 import org.junit.Test
 import org.junit.runner.RunWith
 

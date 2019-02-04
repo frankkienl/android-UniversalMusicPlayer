@@ -28,7 +28,7 @@
             android:resource="@xml/automotive_app_desc"/>
 
         <service
-            android:name=".MusicService"
+            android:name="nl.frankkie.bronyradio.media.MusicService"
             android:enabled="true"
             android:exported="true"
             tools:ignore="ExportedService">

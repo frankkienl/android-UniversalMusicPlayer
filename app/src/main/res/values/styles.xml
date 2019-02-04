@@ -32,7 +32,7 @@
     </style>
 
     <style name="MediaStateIcon">
-        <item name="tint">@color/mediaControlColor</item>
+        <item name="tint">@color/colorAccent</item>
         <item name="android:layout_margin">@dimen/media_item_control_margin</item>
     </style>
 

@@ -15,9 +15,10 @@
   ~ limitations under the License.
   -->
 <resources>
-    <color name="colorPrimary">#840255</color>
-    <color name="colorPrimaryDark">#710144</color>
-    <color name="colorAccent">#14A5A1</color>
+    <color name="colorPrimary">@color/app_color_primary</color>
+    <color name="colorPrimaryDark">@color/app_color_primary_dark</color>
+    <color name="colorAccent">#B93D94</color>
+    <color name="ic_launcher_background">@color/app_color_primary</color>
 
     <color name="transparent">#00000000</color>
 
@@ -29,4 +30,11 @@
     <color name="nowPlayingWhiteBackground">#fdfdfd</color>
 
     <color name="menu_icon_tint">#ffffff</color>
+
+    <!-- Brony Radio //-->
+    <color name="pvfm_lighter">#773EA5</color>
+    <color name="pvfm">#4D0F80</color> <!-- PVFM Dark purple //-->
+
+    <color name="app_color_primary">@color/pvfm_lighter</color>
+    <color name="app_color_primary_dark">@color/pvfm</color>
 </resources>
