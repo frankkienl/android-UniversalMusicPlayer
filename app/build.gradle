@@ -23,8 +23,8 @@ android {
     compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
         applicationId "nl.frankkie.bronyradio"
-        versionCode 4
-        versionName "2.1"
+        versionCode 5
+        versionName "2.2"
 
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
