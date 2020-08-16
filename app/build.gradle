@@ -23,8 +23,8 @@ android {
     compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
         applicationId "nl.frankkie.bronyradio"
-        versionCode 5
-        versionName "2.2"
+        versionCode 6
+        versionName "3.0"
 
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
@@ -33,10 +33,17 @@ android {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
         }
+
+        vectorDrawables {
+            useSupportLibrary true
+        }
     }
-    dataBinding {
-        enabled = true
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -46,13 +53,12 @@ android {
 }
 
 dependencies {
-    implementation project(':media')
+    implementation project(':common')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
     implementation "androidx.appcompat:appcompat:$androidx_app_compat_version"
-    implementation "androidx.legacy:legacy-support-v4:$androidx_version"
-    implementation "androidx.recyclerview:recyclerview:$androidx_version"
+    implementation "androidx.recyclerview:recyclerview:$recycler_view_version"
 
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$arch_lifecycle_version"
